@@ -1,8 +1,8 @@
 <?php
 
-    require "../../todo_scripts/tarefa_model.php";
-    require "../../todo_scripts/tarefa_service.php";
-    require "../../todo_scripts/conexao.php";
+    require "todo_scripts/tarefa_model.php";
+    require "todo_scripts/tarefa_service.php";
+    require "todo_scripts/conexao.php";
 
     $acao = isset($_GET['acao']) ? $_GET['acao'] : $acao;
     $conn = new Conexao();
@@ -21,12 +21,13 @@
     } else if($acao == 'marcarRealizada') {
         $tarefa->__set('id', $_GET['id'])->__set('id_status', 2);
         $tarefaService->marcarRealizada();
-        if(isset($_GET['pagina']) && $_GET['pagina'] == 'index') {
-            header('Location: index.php');
-        } else {
-            header('Location: todas_tarefas.php');
-        }
-    } else if($acao == 'removerTarefa') {
+       if(isset($_GET['pagina']) && $_GET['pagina'] == 'index') {
+        header('Location: index.php');
+    } else {
+        header('Location: todas_tarefas.php');
+    }
+
+    }else if($acao == 'removerTarefa') {
         $tarefa->__set('id', $_GET['id']);
         $tarefaService->removerTarefa(); 
         if(isset($_GET['pagina']) && $_GET['pagina'] == 'index') {
@@ -45,3 +46,5 @@
     }
 
 ?>
+
+
