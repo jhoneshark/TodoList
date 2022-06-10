@@ -1,10 +1,10 @@
 
 <?php
 class Conexao {
-    private $host = 'sql110.epizy.com';
-    private $db_name = 'epiz_31812085_todo_list';
-    private $user = 'epiz_31812085';
-    private $pass = 'aMfOubRMzNo9';
+    private $host = '';
+    private $db_name = '';
+    private $user = '';
+    private $pass = '';
 
     public function conectar() {
         try {
